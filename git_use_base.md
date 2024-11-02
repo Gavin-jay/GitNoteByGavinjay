@@ -1,4 +1,4 @@
-> # The usage of Git
+> ## The usage of Git
 >
 > ## init
 >
@@ -197,3 +197,75 @@
 > ```
 >
 > * 文本编辑器启动后，可以看到之前的提交信息。 编辑后保存会覆盖原来的提交信息,最终只会有一个提交——第二次提交将代替第一次提交的结果
+>
+> ```
+> $ git add *
+> $ git status
+> On branch master
+> Changes to be committed:
+>   (use "git reset HEAD <file>..." to unstage)
+>
+>     renamed:    README.md -> README
+>     modified:   CONTRIBUTING.md
+>
+>
+> $ git reset HEAD CONTRIBUTING.md
+> Unstaged changes after reset:
+> M	CONTRIBUTING.md
+> $ git status
+> On branch master
+> Changes to be committed:
+>   (use "git reset HEAD <file>..." to unstage)
+>
+>     renamed:    README.md -> README
+>
+> Changes not staged for commit:
+>   (use "git add <file>..." to update what will be committed)
+>   (use "git checkout -- <file>..." to discard changes in working directory)
+>
+>     modified:   CONTRIBUTING.md
+>
+> ```
+>
+> * git reset HEAD file to unstage
+>
+> ## remote
+>
+> ```
+> $ git remote
+> origin
+> $ git remote -v
+> origin	https://github.com/schacon/ticgit (fetch)
+> origin	https://github.com/schacon/ticgit (push)
+> ```
+>
+> * check the remote repository
+>
+> ```
+> $ git remote
+> origin
+> $ git branch -M main
+> $ git remote add pb https://github.com/paulboone/ticgit
+> $ git remote -v
+> origin	https://github.com/schacon/ticgit (fetch)
+> origin	https://github.com/schacon/ticgit (push)
+> pb	https://github.com/paulboone/ticgit (fetch)
+> pb	https://github.com/paulboone/ticgit (push)
+>
+> $ git fetch pb
+> remote: Counting objects: 43, done.
+> remote: Compressing objects: 100% (36/36), done.
+> remote: Total 43 (delta 10), reused 31 (delta 5)
+> Unpacking objects: 100% (43/43), done.
+> From https://github.com/paulboone/ticgit
+>  * [new branch]      master     -> pb/master
+>  * [new branch]      ticgit     -> pb/ticgit
+>
+> $ git push pb main
+>
+>
+>
+> ```
+>
+> * 可以在命令行中使用字符串 `pb` 来代替整个 URL
+> * 将 `main` 分支推送到 `pb` 服务器
