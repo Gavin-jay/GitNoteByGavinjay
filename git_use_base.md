@@ -269,3 +269,34 @@
 >
 > * 可以在命令行中使用字符串 `pb` 来代替整个 URL
 > * 将 `main` 分支推送到 `pb` 服务器
+>
+> ```
+> $ git remote show learngit
+> * remote learngit
+>   Fetch URL: https://github.com/Gavin-jay/GitNoteByGavinjay
+>   Push  URL: https://github.com/Gavin-jay/GitNoteByGavinjay
+>   HEAD branch: main
+>   Remote branch:
+>     main tracked
+>   Local ref configured for 'git push':
+>     main pushes to main (up to date)
+> ```
+>
+> * 会列出远程仓库的 URL 与跟踪分支的信息
+>
+> ```
+> $ git remote rename pb paul
+> $ git remote 
+> origin
+> paul
+> ```
+>
+> * 修改一个远程仓库的简写名
+>
+> ```
+> $ git remote remove paul
+> $ git remote
+> origin
+> ```
+>
+> * 移除一个远程仓库
